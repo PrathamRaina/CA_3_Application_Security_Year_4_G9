@@ -74,3 +74,15 @@ Any attempt to open admin pages directly results in a redirect to `adminLogin.ph
 
 This confirms that **Broken Access Control is successfully fixed**, and **Security Requirement S_3 (Authorization)** is now properly enforced.
 
+### 6.2.2 Fixed Vulnerability V4 – Stored XSS in Admin Panel  
+**Security Requirement Mapping:** S_5 – Input Validation  
+
+#### Test Description  
+To verify the fix for Stored XSS, I resubmitted the same malicious payload used during v0 testing:
+`<script>alert(1)</script>`
+After submitting the comment, I opened the admin page Manageblog.php to check how the stored input was displayed.
+
+#### Result  
+The malicious <script> payload no longer executes. Instead of triggering an alert, the characters are now safely escaped and shown as plain text.
+This confirms that input sanitisation and output encoding have been applied correctly.
+The Stored XSS vulnerability is now fully resolved, and Security Requirement S_5 – Input Validation is successfully implemented.
