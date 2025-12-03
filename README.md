@@ -43,8 +43,8 @@ These instructions assume the default XAMPP folders:
 
 1. Copy the contents of **`baseline_v0/`** into your XAMPP web root folder:
 
-   - **Windows:** `C:\xampp\htdocs\college-management-system`
-   - **macOS:** `/Applications/XAMPP/htdocs/college-management-system`
+   - **Windows:** `C:\xampp\htdocs\college-management-system-main`
+   - **macOS:** `/Applications/XAMPP/htdocs/college-management-system-main`
 
 2. Open the application's database configuration file  
    (e.g. `connection.php`, `config.php`, or similar) and ensure it contains:
@@ -57,4 +57,4 @@ These instructions assume the default XAMPP folders:
 
 3. Open the Baseline v1 in the browser using the link: http://localhost/college-management-system/
 
-  
+  ***Note*** : Make sure the college-management-system/  is same as the name folder you save the downloaded files from this github Repo 
