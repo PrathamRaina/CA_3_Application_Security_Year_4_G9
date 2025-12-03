@@ -60,3 +60,17 @@ This scanned all PHP, HTML, and related files for OWASP Top 10 vulnerability pat
 Semgrep successfully analysed the codebase and flagged a manually constructed SQL query in `blog-insert.php` as a **potential SQL Injection** risk.  
 However, Semgrep did **not** detect the stored XSS vulnerability discovered during manual testing, showing that DAST/manual testing was necessary to identify certain issues.
 
+----
+
+### 6.2.1 Fixed Vulnerability V1 – Broken Access Control  
+**Security Requirement Mapping:** S_3 – Authorization  
+
+#### Test Description  
+After implementing session-based access control, I retested the previously vulnerable admin pages such as `ManageStudent.php` by attempting to access them directly through the browser URL in an incognito window. This simulates an unauthenticated user attempting to bypass the login process.
+
+#### Result  
+The application now correctly prevents access to admin pages when no valid session exists.  
+Any attempt to open admin pages directly results in a redirect to `adminLogin.php`, ensuring no sensitive content is exposed.
+
+This confirms that **Broken Access Control is successfully fixed**, and **Security Requirement S_3 (Authorization)** is now properly enforced.
+
