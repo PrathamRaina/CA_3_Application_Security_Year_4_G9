@@ -55,6 +55,25 @@ These instructions assume the default XAMPP folders:
    $password   = "";              // default XAMPP setting
    $dbname     = "university";    // must be exactly 'university'
 
-3. Open the Baseline v1 in the browser using the link: http://localhost/college-management-system/
+3. Open the Baseline v1 in the browser using the link: http://localhost/college-management-system-main/
 
-  ***Note*** : Make sure the college-management-system/  is same as the name folder you save the downloaded files from this github Repo 
+  ***Note*** : Make sure the College-management-system-main in URL above is same as the name folder you save the downloaded files from this github Repo.
+
+## Running the Hardened Version (v1)
+
+To run the secured version:
+
+1. Copy the contents of **`hardened_v1/`** into your XAMPP web root, for example:
+
+   - **Windows:** `C:\xampp\htdocs\college-management-system-main-fixed`
+   - **macOS:** `/Applications/XAMPP/htdocs/college-management-system-main-fixed`
+
+2. Confirm that the database settings (in `connection.php` or `config.php`) are:
+
+   ```php
+   $servername = "localhost";
+   $username   = "root";
+   $password   = "";
+   $dbname     = "university";   // must match the database created earlier
+
+ ***Note*** : Make sure the College-management-system-main in URL above is same as the name folder you save the downloaded files from this github Repo.
