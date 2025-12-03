@@ -48,6 +48,8 @@ After submitting the comment, I opened the admin page Manageblog.php to see how 
 The payload was stored in the database without validation and executed automatically when viewed in the admin panel.
 This confirmed a Stored XSS vulnerability and violated S_5 Input Validation.
 
+---
+
 ### 4.2.3 Semgrep SAST Scan
 
 #### Test Description
@@ -61,6 +63,8 @@ Semgrep successfully analysed the codebase and flagged a manually constructed SQ
 However, Semgrep did **not** detect the stored XSS vulnerability discovered during manual testing, showing that DAST/manual testing was necessary to identify certain issues.
 
 ----
+
+## 6.2 Testing v1 – Member 2: Pratham
 
 ### 6.2.1 Fixed Vulnerability V1 – Broken Access Control  
 **Security Requirement Mapping:** S_3 – Authorization  
