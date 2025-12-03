@@ -77,3 +77,5 @@ To run the secured version:
    $dbname     = "university";   // must match the database created earlier
 
  ***Note*** : Make sure the College-management-system-main in URL above is same as the name folder you save the downloaded files from this github Repo.
+
+ ## Thank You
