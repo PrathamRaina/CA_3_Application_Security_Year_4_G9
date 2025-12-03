@@ -167,3 +167,41 @@ After submitting the comment, I opened the admin page Manageblog.php to check ho
 The malicious <script> payload no longer executes. Instead of triggering an alert, the characters are now safely escaped and shown as plain text.
 This confirms that input sanitisation and output encoding have been applied correctly.
 The Stored XSS vulnerability is now fully resolved, and Security Requirement S_5 – Input Validation is successfully implemented.
+
+---
+
+## 6.3 Testing v1 – Member 3: Denys
+
+### 6.3.1 Fixed Vulnerability V2 – Unauthenticated Delete Operations  
+**Security Requirement Mapping:** S_3 – Authorization  
+
+#### Test Description  
+To verify the fix for V2, I repeated the same steps used during the initial discovery of the vulnerability.  
+Before applying the fix, visiting a delete URL such as  
+`delete-course.php?id=10`  
+in an Incognito browser window executed the delete operation without requiring authentication.
+
+After the session-based authorization checks were added to all vulnerable scripts, I attempted to access the same delete endpoint again while fully logged out.
+
+#### Result  
+Instead of performing the delete action, the script immediately redirected me to the administrator login page, proving that the delete functionality can no longer run without an authenticated admin session.
+
+This confirms that **Unauthenticated Delete Operations are successfully fixed**, and **Security Requirement S_3 (Authorization)** is now properly enforced.
+
+---
+
+### 6.3.2 Fixed Vulnerability V8 – Directory Browsing Enabled  
+**Security Requirement Mapping:** S_6 – Logging and Monitoring  
+
+#### Test Description  
+To confirm that the fix for V8 was effective, I re-ran the same automated scans (Nikto and Gobuster) that initially identified the exposed directories.  
+During the initial assessment, directories such as `/database/`, `/images/`, `/include/`, and `/screenshot/` produced Apache-generated directory listings revealing internal files.
+
+After adding controlled `404 Not Found` index files to all affected directories, the scans were repeated to verify that directory browsing was fully disabled.
+
+#### Result  
+Accessing previously exposed directories in the browser now returns a 404 response instead of listing internal files.  
+Nikto no longer reports directory indexing, and Gobuster cannot enumerate the contents of internal folders.
+
+This confirms that **Directory Browsing has been successfully fixed**, and **Security Requirement S_6 (Logging and Monitoring)** is now properly satisfied.
+
