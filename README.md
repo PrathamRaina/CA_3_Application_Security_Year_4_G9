@@ -35,3 +35,26 @@ These instructions assume the default XAMPP folders:
 1. Start **Apache** and **MySQL** from the XAMPP Control Panel.  
 2. Open phpMyAdmin at: `http://localhost/phpmyadmin`.  
 3. Create a new database with the **exact** name: "University"
+4. Import the university.sql file onto the dataabse.
+
+--- 
+
+## Running the Baseline Version (v0)
+
+1. Copy the contents of **`baseline_v0/`** into your XAMPP web root folder:
+
+   - **Windows:** `C:\xampp\htdocs\college-management-system`
+   - **macOS:** `/Applications/XAMPP/htdocs/college-management-system`
+
+2. Open the application's database configuration file  
+   (e.g. `connection.php`, `config.php`, or similar) and ensure it contains:
+
+   ```php
+   $servername = "localhost";
+   $username   = "root";
+   $password   = "";              // default XAMPP setting
+   $dbname     = "university";    // must be exactly 'university'
+
+3. Open the Baseline v1 in the browser using the link: http://localhost/college-management-system/
+
+  
